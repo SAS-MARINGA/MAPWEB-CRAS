@@ -42,14 +42,12 @@
         <script src="data/Limitemunicipal_1.js"></script>
         <script src="data/CRASreadeabrangencia01042024_2.js"></script>
         <script src="data/CRASreadeabrangencia_3.js"></script>
-        <script src="data/CRASreadeabrangncia_4.js"></script>
-        <script src="data/CRASreadeabrangencia_5.js"></script>
-        <script src="data/CRASreadeabrangencia07122024_6.js"></script>
-        <script src="data/CRASAreadeabrangenciacras__rea_de_abrangencia_7.js"></script>
-        <script src="data/CRASreadeabrangencia_8.js"></script>
-        <script src="data/Setorescensitrios_9.js"></script>
-        <script src="data/Bairros_10.js"></script>
-        <script src="data/CRASreadeabrangenciaagora_11.js"></script>
+        <script src="data/CRASreadeabrangencia_4.js"></script>
+        <script src="data/CRASreadeabrangencia07122024_5.js"></script>
+        <script src="data/CRASAreadeabrangenciacras__rea_de_abrangencia_6.js"></script>
+        <script src="data/Setorescensitrios_7.js"></script>
+        <script src="data/Bairros_8.js"></script>
+        <script src="data/CRASreadeabrangenciaagora_9.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -68,7 +66,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:11
-        }).fitBounds([[-23.538248466002376,-52.14743236619523],[-23.300851244019896,-51.700373682557476]]);
+        }).fitBounds([[-23.50415942611381,-52.11517039933476],[-23.26670101258234,-51.668111715697]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -155,7 +153,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Elaboração: <br />Kauan Borin R. de M.<br />Fonte de dados: <br />RELCAD (15/ 02/ 2025)<br />IBGE (2022)';
+                this._div.innerHTML = 'Organização: <br />Secretária de Assistência Social<br />Elaboração:<br />Kauan Borim<br />Daiane Melhado<br />Fonte de dados:<br />CadÚnico<br />IBGE (2022)';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
@@ -753,280 +751,7 @@
             style: style_CRASreadeabrangencia_3_0,
         });
         bounds_group.addLayer(layer_CRASreadeabrangencia_3);
-        function pop_CRASreadeabrangncia_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Unidade:</th>\
-                        <td>' + (feature.properties['CRAS_NOME'] !== null ? autolinker.link(String(feature.properties['CRAS_NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias cadastradas:</th>\
-                        <td>' + (feature.properties['CONT.FAM'] !== null ? autolinker.link(String(feature.properties['CONT.FAM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pessoas cadastradas:</th>\
-                        <td>' + (feature.properties['CONT.INDV'] !== null ? autolinker.link(String(feature.properties['CONT.INDV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias PBF cadastradas:</th>\
-                        <td>' + (feature.properties['CONT.PBF'] !== null ? autolinker.link(String(feature.properties['CONT.PBF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">BPC - PCD:</th>\
-                        <td>' + (feature.properties['BPC.PCD'] !== null ? autolinker.link(String(feature.properties['BPC.PCD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">BPC - IDOSO:</th>\
-                        <td>' + (feature.properties['BPC_IDOSO'] !== null ? autolinker.link(String(feature.properties['BPC_IDOSO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pessoas acima de 60 anos:</th>\
-                        <td>' + (feature.properties['CONT.60'] !== null ? autolinker.link(String(feature.properties['CONT.60']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias cadastradas na faixa de renda per capita de R$0 a R$218,00:</th>\
-                        <td>' + (feature.properties['0A218'] !== null ? autolinker.link(String(feature.properties['0A218']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias cadatradas na faixa de renda per capita de R$218,00 a R$706,00</th>\
-                        <td>' + (feature.properties['CONT.706'] !== null ? autolinker.link(String(feature.properties['CONT.706']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">População residente IBGE (2022):</th>\
-                        <td>' + (feature.properties['População residente IBGE (2022)'] !== null ? autolinker.link(String(feature.properties['População residente IBGE (2022)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_CRASreadeabrangncia_4_0(feature) {
-            switch(String(feature.properties['q2wHide_CRAS'])) {
-                case 'Alvorada':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(237,241,113,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Branca Vieira':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(53,240,206,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Floriano':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(237,107,51,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Iguatemi':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(120,70,227,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Itaipu':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(124,201,236,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Mandacaru':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(146,201,28,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Morangueira':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,182,82,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Ney Braga':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(202,102,170,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Requião':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(211,75,102,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Santa Clara':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(119,139,228,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Santa Felicidade':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(230,234,160,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'São Judas Tadeu':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(107,229,146,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Centro POP':
-                    return {
-                pane: 'pane_CRASreadeabrangncia_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.8549019607843137)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(186,213,188,1.0)',
-                interactive: true,
-            }
-                    break;
-            }
-        }
-        map.createPane('pane_CRASreadeabrangncia_4');
-        map.getPane('pane_CRASreadeabrangncia_4').style.zIndex = 404;
-        map.getPane('pane_CRASreadeabrangncia_4').style['mix-blend-mode'] = 'normal';
-        var layer_CRASreadeabrangncia_4 = new L.geoJson(json_CRASreadeabrangncia_4, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_CRASreadeabrangncia_4',
-            layerName: 'layer_CRASreadeabrangncia_4',
-            pane: 'pane_CRASreadeabrangncia_4',
-            onEachFeature: pop_CRASreadeabrangncia_4,
-            style: style_CRASreadeabrangncia_4_0,
-        });
-        bounds_group.addLayer(layer_CRASreadeabrangncia_4);
-        map.addLayer(layer_CRASreadeabrangncia_4);
-        function pop_CRASreadeabrangencia_5(feature, layer) {
+        function pop_CRASreadeabrangencia_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1082,11 +807,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CRASreadeabrangencia_5_0(feature) {
+        function style_CRASreadeabrangencia_4_0(feature) {
             switch(String(feature.properties['CRAS'])) {
                 case 'Alvorada':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1101,7 +826,7 @@
                     break;
                 case 'Branca Vieira':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1116,7 +841,7 @@
                     break;
                 case 'Floriano':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1131,7 +856,7 @@
                     break;
                 case 'Iguatemi':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1146,7 +871,7 @@
                     break;
                 case 'Itaipu':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1161,7 +886,7 @@
                     break;
                 case 'Mandacaru':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1176,7 +901,7 @@
                     break;
                 case 'Morangueira':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1191,7 +916,7 @@
                     break;
                 case 'Ney Braga':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1206,7 +931,7 @@
                     break;
                 case 'Requião':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1221,7 +946,7 @@
                     break;
                 case 'Santa Clara':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1236,7 +961,7 @@
                     break;
                 case 'Santa Felicidade':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1251,7 +976,7 @@
                     break;
                 case 'São Judas Tadeu':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1266,7 +991,7 @@
                     break;
                 case 'Centro POP':
                     return {
-                pane: 'pane_CRASreadeabrangencia_5',
+                pane: 'pane_CRASreadeabrangencia_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1281,20 +1006,20 @@
                     break;
             }
         }
-        map.createPane('pane_CRASreadeabrangencia_5');
-        map.getPane('pane_CRASreadeabrangencia_5').style.zIndex = 405;
-        map.getPane('pane_CRASreadeabrangencia_5').style['mix-blend-mode'] = 'normal';
-        var layer_CRASreadeabrangencia_5 = new L.geoJson(json_CRASreadeabrangencia_5, {
+        map.createPane('pane_CRASreadeabrangencia_4');
+        map.getPane('pane_CRASreadeabrangencia_4').style.zIndex = 404;
+        map.getPane('pane_CRASreadeabrangencia_4').style['mix-blend-mode'] = 'normal';
+        var layer_CRASreadeabrangencia_4 = new L.geoJson(json_CRASreadeabrangencia_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CRASreadeabrangencia_5',
-            layerName: 'layer_CRASreadeabrangencia_5',
-            pane: 'pane_CRASreadeabrangencia_5',
-            onEachFeature: pop_CRASreadeabrangencia_5,
-            style: style_CRASreadeabrangencia_5_0,
+            dataVar: 'json_CRASreadeabrangencia_4',
+            layerName: 'layer_CRASreadeabrangencia_4',
+            pane: 'pane_CRASreadeabrangencia_4',
+            onEachFeature: pop_CRASreadeabrangencia_4,
+            style: style_CRASreadeabrangencia_4_0,
         });
-        bounds_group.addLayer(layer_CRASreadeabrangencia_5);
-        function pop_CRASreadeabrangencia07122024_6(feature, layer) {
+        bounds_group.addLayer(layer_CRASreadeabrangencia_4);
+        function pop_CRASreadeabrangencia07122024_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1357,11 +1082,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CRASreadeabrangencia07122024_6_0(feature) {
+        function style_CRASreadeabrangencia07122024_5_0(feature) {
             switch(String(feature.properties['CRAS'])) {
                 case 'Alvorada':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1376,7 +1101,7 @@
                     break;
                 case 'Branca Vieira':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1391,7 +1116,7 @@
                     break;
                 case 'Floriano':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1406,7 +1131,7 @@
                     break;
                 case 'Iguatemi':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1421,7 +1146,7 @@
                     break;
                 case 'Itaipu':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1436,7 +1161,7 @@
                     break;
                 case 'Mandacaru':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1451,7 +1176,7 @@
                     break;
                 case 'Morangueira':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1466,7 +1191,7 @@
                     break;
                 case 'Ney Braga':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1481,7 +1206,7 @@
                     break;
                 case 'Requião':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1496,7 +1221,7 @@
                     break;
                 case 'Santa Clara':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1511,7 +1236,7 @@
                     break;
                 case 'Santa Felicidade':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1526,7 +1251,7 @@
                     break;
                 case 'São Judas Tadeu':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1541,7 +1266,7 @@
                     break;
                 case 'Centro POP':
                     return {
-                pane: 'pane_CRASreadeabrangencia07122024_6',
+                pane: 'pane_CRASreadeabrangencia07122024_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.8549019607843137)',
                 dashArray: '',
@@ -1556,20 +1281,20 @@
                     break;
             }
         }
-        map.createPane('pane_CRASreadeabrangencia07122024_6');
-        map.getPane('pane_CRASreadeabrangencia07122024_6').style.zIndex = 406;
-        map.getPane('pane_CRASreadeabrangencia07122024_6').style['mix-blend-mode'] = 'normal';
-        var layer_CRASreadeabrangencia07122024_6 = new L.geoJson(json_CRASreadeabrangencia07122024_6, {
+        map.createPane('pane_CRASreadeabrangencia07122024_5');
+        map.getPane('pane_CRASreadeabrangencia07122024_5').style.zIndex = 405;
+        map.getPane('pane_CRASreadeabrangencia07122024_5').style['mix-blend-mode'] = 'normal';
+        var layer_CRASreadeabrangencia07122024_5 = new L.geoJson(json_CRASreadeabrangencia07122024_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CRASreadeabrangencia07122024_6',
-            layerName: 'layer_CRASreadeabrangencia07122024_6',
-            pane: 'pane_CRASreadeabrangencia07122024_6',
-            onEachFeature: pop_CRASreadeabrangencia07122024_6,
-            style: style_CRASreadeabrangencia07122024_6_0,
+            dataVar: 'json_CRASreadeabrangencia07122024_5',
+            layerName: 'layer_CRASreadeabrangencia07122024_5',
+            pane: 'pane_CRASreadeabrangencia07122024_5',
+            onEachFeature: pop_CRASreadeabrangencia07122024_5,
+            style: style_CRASreadeabrangencia07122024_5_0,
         });
-        bounds_group.addLayer(layer_CRASreadeabrangencia07122024_6);
-        function pop_CRASAreadeabrangenciacras__rea_de_abrangencia_7(feature, layer) {
+        bounds_group.addLayer(layer_CRASreadeabrangencia07122024_5);
+        function pop_CRASAreadeabrangenciacras__rea_de_abrangencia_6(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -1653,11 +1378,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CRASAreadeabrangenciacras__rea_de_abrangencia_7_0(feature) {
+        function style_CRASAreadeabrangenciacras__rea_de_abrangencia_6_0(feature) {
             switch(String(feature.properties['CRAS'])) {
                 case 'Alvorada':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1672,7 +1397,7 @@
                     break;
                 case 'Branca Vieira':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1687,7 +1412,7 @@
                     break;
                 case 'Centro POP':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1702,7 +1427,7 @@
                     break;
                 case 'Floriano':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1717,7 +1442,7 @@
                     break;
                 case 'Iguatemi':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1732,7 +1457,7 @@
                     break;
                 case 'Itaipu':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1747,7 +1472,7 @@
                     break;
                 case 'Mandacaru':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1762,7 +1487,7 @@
                     break;
                 case 'Morangueira':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1777,7 +1502,7 @@
                     break;
                 case 'Ney Braga':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1792,7 +1517,7 @@
                     break;
                 case 'Requião':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1807,7 +1532,7 @@
                     break;
                 case 'Santa Clara':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1822,7 +1547,7 @@
                     break;
                 case 'Santa Felicidade':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1837,7 +1562,7 @@
                     break;
                 case 'São Judas Tadeu':
                     return {
-                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
+                pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -1852,298 +1577,21 @@
                     break;
             }
         }
-        map.createPane('pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7');
-        map.getPane('pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7').style.zIndex = 407;
-        map.getPane('pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7').style['mix-blend-mode'] = 'normal';
-        var layer_CRASAreadeabrangenciacras__rea_de_abrangencia_7 = new L.geoJson(json_CRASAreadeabrangenciacras__rea_de_abrangencia_7, {
+        map.createPane('pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6');
+        map.getPane('pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6').style.zIndex = 406;
+        map.getPane('pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6').style['mix-blend-mode'] = 'normal';
+        var layer_CRASAreadeabrangenciacras__rea_de_abrangencia_6 = new L.geoJson(json_CRASAreadeabrangenciacras__rea_de_abrangencia_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
-            layerName: 'layer_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
-            pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_7',
-            onEachFeature: pop_CRASAreadeabrangenciacras__rea_de_abrangencia_7,
-            style: style_CRASAreadeabrangenciacras__rea_de_abrangencia_7_0,
+            dataVar: 'json_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
+            layerName: 'layer_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
+            pane: 'pane_CRASAreadeabrangenciacras__rea_de_abrangencia_6',
+            onEachFeature: pop_CRASAreadeabrangenciacras__rea_de_abrangencia_6,
+            style: style_CRASAreadeabrangenciacras__rea_de_abrangencia_6_0,
         });
-        bounds_group.addLayer(layer_CRASAreadeabrangenciacras__rea_de_abrangencia_7);
-        map.addLayer(layer_CRASAreadeabrangenciacras__rea_de_abrangencia_7);
-        function pop_CRASreadeabrangencia_8(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">CRAS</th>\
-                        <td class="visible-with-data" id="CRAS">' + (feature.properties['CRAS'] !== null ? autolinker.link(String(feature.properties['CRAS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Unidade:</th>\
-                        <td class="visible-with-data" id="CRAS_NOME">' + (feature.properties['CRAS_NOME'] !== null ? autolinker.link(String(feature.properties['CRAS_NOME']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias cadastradas:</th>\
-                        <td class="visible-with-data" id="CONT.FAM">' + (feature.properties['CONT.FAM'] !== null ? autolinker.link(String(feature.properties['CONT.FAM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pessoas cadastradas:</th>\
-                        <td class="visible-with-data" id="CONT.INDV">' + (feature.properties['CONT.INDV'] !== null ? autolinker.link(String(feature.properties['CONT.INDV']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias PBF cadastradas:</th>\
-                        <td class="visible-with-data" id="CONT.PBF">' + (feature.properties['CONT.PBF'] !== null ? autolinker.link(String(feature.properties['CONT.PBF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">BPC - PCD:</th>\
-                        <td class="visible-with-data" id="BPC.PCD">' + (feature.properties['BPC.PCD'] !== null ? autolinker.link(String(feature.properties['BPC.PCD']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">BPC - IDOSO:</th>\
-                        <td class="visible-with-data" id="BPC_IDOSO">' + (feature.properties['BPC_IDOSO'] !== null ? autolinker.link(String(feature.properties['BPC_IDOSO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pessoas acima de 60 anos:</th>\
-                        <td class="visible-with-data" id="CONT.60">' + (feature.properties['CONT.60'] !== null ? autolinker.link(String(feature.properties['CONT.60']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias cadastradas na faixa de renda per capita de R$0 a R$218,00:</th>\
-                        <td class="visible-with-data" id="0A218">' + (feature.properties['0A218'] !== null ? autolinker.link(String(feature.properties['0A218']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Famílias cadatradas na faixa de renda per capita de R$218,00 a R$706,00</th>\
-                        <td class="visible-with-data" id="CONT.706">' + (feature.properties['CONT.706'] !== null ? autolinker.link(String(feature.properties['CONT.706']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">População residente IBGE (2022):</th>\
-                        <td class="visible-with-data" id="População residente IBGE (2022)">' + (feature.properties['População residente IBGE (2022)'] !== null ? autolinker.link(String(feature.properties['População residente IBGE (2022)']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_CRASreadeabrangencia_8_0(feature) {
-            switch(String(feature.properties['CRAS'])) {
-                case 'Alvorada':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(237,241,113,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Branca Vieira':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(53,240,206,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Centro POP':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(186,213,188,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Floriano':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(237,107,51,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Iguatemi':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(120,70,227,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Itaipu':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(124,201,236,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Mandacaru':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(146,201,28,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Morangueira':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(204,182,82,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Ney Braga':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(202,102,170,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Requião':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(211,75,102,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Santa Clara':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(119,139,228,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Santa Felicidade':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(230,234,160,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'São Judas Tadeu':
-                    return {
-                pane: 'pane_CRASreadeabrangencia_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(107,229,146,1.0)',
-                interactive: true,
-            }
-                    break;
-            }
-        }
-        map.createPane('pane_CRASreadeabrangencia_8');
-        map.getPane('pane_CRASreadeabrangencia_8').style.zIndex = 408;
-        map.getPane('pane_CRASreadeabrangencia_8').style['mix-blend-mode'] = 'normal';
-        var layer_CRASreadeabrangencia_8 = new L.geoJson(json_CRASreadeabrangencia_8, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_CRASreadeabrangencia_8',
-            layerName: 'layer_CRASreadeabrangencia_8',
-            pane: 'pane_CRASreadeabrangencia_8',
-            onEachFeature: pop_CRASreadeabrangencia_8,
-            style: style_CRASreadeabrangencia_8_0,
-        });
-        bounds_group.addLayer(layer_CRASreadeabrangencia_8);
-        map.addLayer(layer_CRASreadeabrangencia_8);
-        function pop_Setorescensitrios_9(feature, layer) {
+        bounds_group.addLayer(layer_CRASAreadeabrangenciacras__rea_de_abrangencia_6);
+        map.addLayer(layer_CRASAreadeabrangenciacras__rea_de_abrangencia_6);
+        function pop_Setorescensitrios_7(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2187,9 +1635,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Setorescensitrios_9_0() {
+        function style_Setorescensitrios_7_0() {
             return {
-                pane: 'pane_Setorescensitrios_9',
+                pane: 'pane_Setorescensitrios_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2200,20 +1648,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Setorescensitrios_9');
-        map.getPane('pane_Setorescensitrios_9').style.zIndex = 409;
-        map.getPane('pane_Setorescensitrios_9').style['mix-blend-mode'] = 'normal';
-        var layer_Setorescensitrios_9 = new L.geoJson(json_Setorescensitrios_9, {
+        map.createPane('pane_Setorescensitrios_7');
+        map.getPane('pane_Setorescensitrios_7').style.zIndex = 407;
+        map.getPane('pane_Setorescensitrios_7').style['mix-blend-mode'] = 'normal';
+        var layer_Setorescensitrios_7 = new L.geoJson(json_Setorescensitrios_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Setorescensitrios_9',
-            layerName: 'layer_Setorescensitrios_9',
-            pane: 'pane_Setorescensitrios_9',
-            onEachFeature: pop_Setorescensitrios_9,
-            style: style_Setorescensitrios_9_0,
+            dataVar: 'json_Setorescensitrios_7',
+            layerName: 'layer_Setorescensitrios_7',
+            pane: 'pane_Setorescensitrios_7',
+            onEachFeature: pop_Setorescensitrios_7,
+            style: style_Setorescensitrios_7_0,
         });
-        bounds_group.addLayer(layer_Setorescensitrios_9);
-        function pop_Bairros_10(feature, layer) {
+        bounds_group.addLayer(layer_Setorescensitrios_7);
+        function pop_Bairros_8(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2281,9 +1729,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Bairros_10_0() {
+        function style_Bairros_8_0() {
             return {
-                pane: 'pane_Bairros_10',
+                pane: 'pane_Bairros_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2294,20 +1742,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Bairros_10');
-        map.getPane('pane_Bairros_10').style.zIndex = 410;
-        map.getPane('pane_Bairros_10').style['mix-blend-mode'] = 'normal';
-        var layer_Bairros_10 = new L.geoJson(json_Bairros_10, {
+        map.createPane('pane_Bairros_8');
+        map.getPane('pane_Bairros_8').style.zIndex = 408;
+        map.getPane('pane_Bairros_8').style['mix-blend-mode'] = 'normal';
+        var layer_Bairros_8 = new L.geoJson(json_Bairros_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Bairros_10',
-            layerName: 'layer_Bairros_10',
-            pane: 'pane_Bairros_10',
-            onEachFeature: pop_Bairros_10,
-            style: style_Bairros_10_0,
+            dataVar: 'json_Bairros_8',
+            layerName: 'layer_Bairros_8',
+            pane: 'pane_Bairros_8',
+            onEachFeature: pop_Bairros_8,
+            style: style_Bairros_8_0,
         });
-        bounds_group.addLayer(layer_Bairros_10);
-        function pop_CRASreadeabrangenciaagora_11(feature, layer) {
+        bounds_group.addLayer(layer_Bairros_8);
+        function pop_CRASreadeabrangenciaagora_9(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (var i in e.target._eventParents) {
@@ -2371,11 +1819,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CRASreadeabrangenciaagora_11_0(feature) {
+        function style_CRASreadeabrangenciaagora_9_0(feature) {
             switch(String(feature.properties['CRAS'])) {
                 case 'Alvorada':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2390,7 +1838,7 @@
                     break;
                 case 'Branca Vieira':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2405,7 +1853,7 @@
                     break;
                 case 'Centro POP':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2420,7 +1868,7 @@
                     break;
                 case 'Floriano':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2435,7 +1883,7 @@
                     break;
                 case 'Iguatemi':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2450,7 +1898,7 @@
                     break;
                 case 'Itaipu':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2465,7 +1913,7 @@
                     break;
                 case 'Mandacaru':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2480,7 +1928,7 @@
                     break;
                 case 'Morangueira':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2495,7 +1943,7 @@
                     break;
                 case 'Ney Braga':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2510,7 +1958,7 @@
                     break;
                 case 'Requião':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2525,7 +1973,7 @@
                     break;
                 case 'Santa Clara':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2540,7 +1988,7 @@
                     break;
                 case 'Santa Felicidade':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2555,7 +2003,7 @@
                     break;
                 case 'São Judas Tadeu':
                     return {
-                pane: 'pane_CRASreadeabrangenciaagora_11',
+                pane: 'pane_CRASreadeabrangenciaagora_9',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2570,24 +2018,24 @@
                     break;
             }
         }
-        map.createPane('pane_CRASreadeabrangenciaagora_11');
-        map.getPane('pane_CRASreadeabrangenciaagora_11').style.zIndex = 411;
-        map.getPane('pane_CRASreadeabrangenciaagora_11').style['mix-blend-mode'] = 'normal';
-        var layer_CRASreadeabrangenciaagora_11 = new L.geoJson(json_CRASreadeabrangenciaagora_11, {
+        map.createPane('pane_CRASreadeabrangenciaagora_9');
+        map.getPane('pane_CRASreadeabrangenciaagora_9').style.zIndex = 409;
+        map.getPane('pane_CRASreadeabrangenciaagora_9').style['mix-blend-mode'] = 'normal';
+        var layer_CRASreadeabrangenciaagora_9 = new L.geoJson(json_CRASreadeabrangenciaagora_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CRASreadeabrangenciaagora_11',
-            layerName: 'layer_CRASreadeabrangenciaagora_11',
-            pane: 'pane_CRASreadeabrangenciaagora_11',
-            onEachFeature: pop_CRASreadeabrangenciaagora_11,
-            style: style_CRASreadeabrangenciaagora_11_0,
+            dataVar: 'json_CRASreadeabrangenciaagora_9',
+            layerName: 'layer_CRASreadeabrangenciaagora_9',
+            pane: 'pane_CRASreadeabrangenciaagora_9',
+            onEachFeature: pop_CRASreadeabrangenciaagora_9,
+            style: style_CRASreadeabrangenciaagora_9_0,
         });
-        bounds_group.addLayer(layer_CRASreadeabrangenciaagora_11);
-        map.addLayer(layer_CRASreadeabrangenciaagora_11);
-        map.createPane('pane_Transparncia_12');
-        map.getPane('pane_Transparncia_12').style.zIndex = 412;
-        var layer_Transparncia_12 = L.tileLayer('https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png', {
-            pane: 'pane_Transparncia_12',
+        bounds_group.addLayer(layer_CRASreadeabrangenciaagora_9);
+        map.addLayer(layer_CRASreadeabrangenciaagora_9);
+        map.createPane('pane_Transparncia_10');
+        map.getPane('pane_Transparncia_10').style.zIndex = 410;
+        var layer_Transparncia_10 = L.tileLayer('https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}@2x.png', {
+            pane: 'pane_Transparncia_10',
             opacity: 0.34,
             attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
             minZoom: 11,
@@ -2595,23 +2043,20 @@
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_Transparncia_12;
-        map.addLayer(layer_Transparncia_12);
+        layer_Transparncia_10;
+        map.addLayer(layer_Transparncia_10);
         var overlaysTree = [
-            {label: "Transparência", layer: layer_Transparncia_12},
+            {label: "Transparência", layer: layer_Transparncia_10},
         {label: '<b>Áreas de abrangência</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'CRAS - Área de abrangencia agora<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_CentroPOP2.png" /></td><td>Centro POP</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_Floriano3.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_Iguatemi4.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_Itaipu5.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_Mandacaru6.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_Morangueira7.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_NeyBraga8.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_Requião9.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_SantaClara10.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_SantaFelicidade11.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_11_SãoJudasTadeu12.png" /></td><td>São Judas Tadeu</td></tr></table>', layer: layer_CRASreadeabrangenciaagora_11},
-            {label: '<img src="legend/Bairros_10.png" /> Bairros', layer: layer_Bairros_10},
-            {label: '<img src="legend/Setorescensitrios_9.png" /> Setores censitários', layer: layer_Setorescensitrios_9},]},
-        {label: '<b>RELCAD (15-11-2025)</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'CRAS - Área de abrangencia<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_CentroPOP2.png" /></td><td>Centro POP</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_Floriano3.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_Iguatemi4.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_Itaipu5.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_Mandacaru6.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_Morangueira7.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_NeyBraga8.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_Requião9.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_SantaClara10.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_SantaFelicidade11.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_8_SãoJudasTadeu12.png" /></td><td>São Judas Tadeu</td></tr></table>', layer: layer_CRASreadeabrangencia_8},]},
+            {label: 'CRAS - Área de abrangencia agora<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_CentroPOP2.png" /></td><td>Centro POP</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_Floriano3.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_Iguatemi4.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_Itaipu5.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_Mandacaru6.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_Morangueira7.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_NeyBraga8.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_Requião9.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_SantaClara10.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_SantaFelicidade11.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangenciaagora_9_SãoJudasTadeu12.png" /></td><td>São Judas Tadeu</td></tr></table>', layer: layer_CRASreadeabrangenciaagora_9},
+            {label: '<img src="legend/Bairros_8.png" /> Bairros', layer: layer_Bairros_8},
+            {label: '<img src="legend/Setorescensitrios_7.png" /> Setores censitários', layer: layer_Setorescensitrios_7},]},
         {label: '<b>RELCAD (07-02-2025)</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'CRAS - Area de abrangencia — cras__rea_de_abrangencia<br /><table><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_CentroPOP2.png" /></td><td>Centro POP</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_Floriano3.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_Iguatemi4.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_Itaipu5.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_Mandacaru6.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_Morangueira7.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_NeyBraga8.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_Requião9.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_SantaClara10.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_SantaFelicidade11.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_7_SãoJudasTadeu12.png" /></td><td>São Judas Tadeu</td></tr></table>', layer: layer_CRASAreadeabrangenciacras__rea_de_abrangencia_7},]},
+            {label: 'CRAS - Area de abrangencia — cras__rea_de_abrangencia<br /><table><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_CentroPOP2.png" /></td><td>Centro POP</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_Floriano3.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_Iguatemi4.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_Itaipu5.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_Mandacaru6.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_Morangueira7.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_NeyBraga8.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_Requião9.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_SantaClara10.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_SantaFelicidade11.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASAreadeabrangenciacras__rea_de_abrangencia_6_SãoJudasTadeu12.png" /></td><td>São Judas Tadeu</td></tr></table>', layer: layer_CRASAreadeabrangenciacras__rea_de_abrangencia_6},]},
         {label: '<b>RELCAD (07-12-2024)</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'CRAS - Área de abrangencia (07-12-2024)<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_Floriano2.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_Iguatemi3.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_Itaipu4.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_Mandacaru5.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_Morangueira6.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_NeyBraga7.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_Requião8.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_SantaClara9.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_SantaFelicidade10.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_SãoJudasTadeu11.png" /></td><td>São Judas Tadeu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_6_CentroPOP12.png" /></td><td>Centro POP</td></tr></table>', layer: layer_CRASreadeabrangencia07122024_6},]},
+            {label: 'CRAS - Área de abrangencia (07-12-2024)<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_Floriano2.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_Iguatemi3.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_Itaipu4.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_Mandacaru5.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_Morangueira6.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_NeyBraga7.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_Requião8.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_SantaClara9.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_SantaFelicidade10.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_SãoJudasTadeu11.png" /></td><td>São Judas Tadeu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia07122024_5_CentroPOP12.png" /></td><td>Centro POP</td></tr></table>', layer: layer_CRASreadeabrangencia07122024_5},]},
         {label: '<b>RELCAD (29/09/2024)</b>', collapsed: true, selectAllCheckbox: true, children: [
-            {label: 'CRAS - Área de abrangencia<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_Floriano2.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_Iguatemi3.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_Itaipu4.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_Mandacaru5.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_Morangueira6.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_NeyBraga7.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_Requião8.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_SantaClara9.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_SantaFelicidade10.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_SãoJudasTadeu11.png" /></td><td>São Judas Tadeu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_5_CentroPOP12.png" /></td><td>Centro POP</td></tr></table>', layer: layer_CRASreadeabrangencia_5},
-            {label: 'CRAS - Área de abrangência<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_Floriano2.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_Iguatemi3.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_Itaipu4.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_Mandacaru5.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_Morangueira6.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_NeyBraga7.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_Requião8.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_SantaClara9.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_SantaFelicidade10.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_SãoJudasTadeu11.png" /></td><td>São Judas Tadeu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangncia_4_CentroPOP12.png" /></td><td>Centro POP</td></tr></table>', layer: layer_CRASreadeabrangncia_4},]},
+            {label: 'CRAS - Área de abrangencia<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_Floriano2.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_Iguatemi3.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_Itaipu4.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_Mandacaru5.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_Morangueira6.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_NeyBraga7.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_Requião8.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_SantaClara9.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_SantaFelicidade10.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_SãoJudasTadeu11.png" /></td><td>São Judas Tadeu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_4_CentroPOP12.png" /></td><td>Centro POP</td></tr></table>', layer: layer_CRASreadeabrangencia_4},]},
         {label: '<b>RELCAD (03/06/2024)</b>', collapsed: true, selectAllCheckbox: true, children: [
             {label: 'CRAS - Área de abrangencia<br /><table><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_Alvorada0.png" /></td><td>Alvorada</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_BrancaVieira1.png" /></td><td>Branca Vieira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_Floriano2.png" /></td><td>Floriano</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_Iguatemi3.png" /></td><td>Iguatemi</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_Itaipu4.png" /></td><td>Itaipu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_Mandacaru5.png" /></td><td>Mandacaru</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_Morangueira6.png" /></td><td>Morangueira</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_NeyBraga7.png" /></td><td>Ney Braga</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_Requião8.png" /></td><td>Requião</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_SantaClara9.png" /></td><td>Santa Clara</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_SantaFelicidade10.png" /></td><td>Santa Felicidade</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_SãoJudasTadeu11.png" /></td><td>São Judas Tadeu</td></tr><tr><td style="text-align: center;"><img src="legend/CRASreadeabrangencia_3_CentroPOP12.png" /></td><td>Centro POP</td></tr></table>', layer: layer_CRASreadeabrangencia_3},]},
         {label: '<b>RELCAD (01/04/2024)</b>', collapsed: true, selectAllCheckbox: true, children: [
